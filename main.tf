@@ -19,7 +19,7 @@ resource "aws_rds_cluster" "aurora" {
   db_cluster_parameter_group_name = "${aws_rds_cluster_parameter_group.aurora_cluster_parameter_group.id}"
   final_snapshot_identifier       = "final-snapshot-${var.name}-${data.aws_vpc.vpc.tags["Name"]}"          # Useful in dev
 
-  #skip_final_snapshot                 = true # Useful in dev - defaults to false
+  skip_final_snapshot                 = true # Useful in dev - defaults to false
   iam_database_authentication_enabled = "${var.iam_database_authentication_enabled}"
 
   lifecycle {
